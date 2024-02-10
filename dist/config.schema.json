@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "http://localhost:8080/dev/config.schema.json",
+  "title": "Config",
+  "description": "JSON Schema for Config object",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "description": "Reference to config.schema.json",
+      "type": "string"
+    },
+    "channel": {
+      "description": "Channel Configuration Information",
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Channel Title",
+          "type": "string"
+        },
+        "pubDate": {
+          "description": "Publication date of this version of the channel. Any string recognized by Date.",
+          "type": "string"
+        },
+        "copyright": {
+          "description": "Copyright",
+          "type": "string"
+        },
+        "domain": {
+          "description": "Domain name used to generate inline links.",
+          "type": "string"
+        },
+        "author": {
+          "description": "Creator of this channel",
+          "type": "string"
+        },
+        "email": {
+          "description": "Email address of the creator. Required for distribution.",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the channel",
+          "type": "string"
+        },
+        "imageFile": {
+          "description": "File name of channel image from `content` directory. Assumes png. Don't make it complicated.",
+          "type": "string"
+        },
+        "keywords": {
+          "description": "List of keywords",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "explicit": {
+          "description": "Explicit",
+          "type": "boolean"
+        },
+        "serial": {
+          "description": "Serial or Episodic",
+          "type": "boolean"
+        },
+        "category": {
+          "description": "Apple Podcast Categories. Matches the structure of the `ITunesCategory` object",
+          "type": ["object", "array"],
+          "properties": {
+            "text": {
+              "description": "Exact text of an Apple Podcast category, properly escaped.",
+              "type": "string"
+            },
+            "subcategory": {
+              "description": "Exact text of an Apple Podcast subcategory that matches the enclosing category.",
+              "type": "string"
+            }
+          },
+          "maxLength": 2,
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "description": "Exact text of an Apple Podcast category, properly escaped.",
+                "type": "string"
+              },
+              "subcategory": {
+                "description": "Exact text of an Apple Podcast subcategory that matches the enclosing category.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "items": {
+          "description": "List of items in the channel.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "description": "Title of this item.",
+                "type": "string"
+              },
+              "pubDate": {
+                "description": "Publication date of this item.",
+                "type": "string"
+              },
+              "descriptionFile": {
+                "description": "File name of this item's HTML description from `content` directory.",
+                "type": "string"
+              },
+              "audioFile": {
+                "description": "File name of this item's audio from `content` directory. Assumes mp3. Don't make it complicated.",
+                "type": "string"
+              },
+              "imageFile": {
+                "description": "File name of this item's image from `content` directory. Assumes png. Don't make it complicated.",
+                "type": "string"
+              },
+              "season": {
+                "description": "Season number",
+                "type": "number"
+              },
+              "episode": {
+                "description": "Episode number",
+                "type": "number"
+              }
+            }
+          }
+        }
+      },
+      "required": ["title", "domain", "pubDate", "author", "description", "imageFile", "email"]
+    }
+  }
+}

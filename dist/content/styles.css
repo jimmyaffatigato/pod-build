@@ -1,0 +1,19 @@
+.channelImage {
+  height: 300px;
+}
+
+.episodeDescription {
+  border: 1px solid black;
+}
+
+.downloadLink {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1px solid #dddddd;
+}

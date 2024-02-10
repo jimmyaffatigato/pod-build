@@ -1,0 +1,27 @@
+{
+  "name": "pod-build",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild --bundle ./src/main.ts --outfile=./dist/main.js --platform=node --external:jsdom --external:sharp --external:@ffprobe-installer/ffprobe",
+    "watch": "npm run build -- --watch",
+    "start": "node ./dist/main.js",
+    "serve": "node ./dist/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jsdom": "^21.1.6",
+    "@types/node": "^20.11.8",
+    "esbuild": "^0.20.0"
+  },
+  "dependencies": {
+    "@ffprobe-installer/ffprobe": "^2.1.2",
+    "@types/mustache": "^4.2.5",
+    "jsdom": "^24.0.0",
+    "mustache": "^4.2.0",
+    "sharp": "^0.33.2"
+  }
+}
