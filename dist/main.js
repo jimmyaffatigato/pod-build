@@ -1149,6 +1149,7 @@ var Generator = class _Generator {
    * Imports `config.json`, builds an `RSSChannel`, and compiles a static site for the content in `./public`.
    */
   static async start() {
+    await _Generator.init();
     const config = await importJSON(CONFIGPATH);
     const channel = await _Generator.generateChannel(config);
     if (channel) {
@@ -1216,7 +1217,6 @@ var Generator = class _Generator {
 // src/main.ts
 main();
 async function main() {
-  await Generator.init();
   await Generator.start();
 }
 /*! Bundled license information:
